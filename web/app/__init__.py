@@ -4,9 +4,11 @@ from flask import (
     make_response
 )
 from app.helloworld.controller import helloworld_blueprint
+from app.catastrophe.controller import main_blueprint
 
 BLUEPRINTS = [
-    (helloworld_blueprint, ['/'])
+    (helloworld_blueprint, ['/']),
+    (main_blueprint, ['/'])
 ]
 
 
