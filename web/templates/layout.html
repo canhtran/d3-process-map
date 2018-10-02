@@ -8,9 +8,11 @@
   </head>
   <body>
     <div id="content">{% block content %}{% endblock %}</div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='d3/d3.v3.min.js') }}"></script>
     <div id="footer">
       {% block footer %}
-      &copy; Copyright 2010 by <a href="http://domain.invalid/">you</a>.
+      &copy; Copyright 2018 by <a href="avoid(0)">you</a>.
       {% endblock %}
     </div>
   </body>
