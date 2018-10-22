@@ -7,8 +7,17 @@
   </style>
 {% endblock %}
 {% block content %}
-  <h1>Index</h1>
-  <p class="important">
-    Welcome on my awesome homepage.
+<div id="split-container">
+    <a class="btn btn-default nav-button" id="nav-list" href="#">
+        View list
+    </a>
+    <div id="graph-container">
+        <div id="graph"></div>
+    </div>
+    <div id="docs-container">
+        <a id="docs-close" href="#">&times;</a>
+        <div id="docs" class="docs"></div>
+    </div>
+</div>
 {% endblock %}
 
