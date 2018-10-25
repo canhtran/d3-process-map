@@ -2,14 +2,22 @@ import json
 
 
 def read_data(data_url):
-	with open(data_url) as json_data:
-		json = json.load(json_data)
+    data = {}
+    errors = []
+    with open(data_url) as json_data:
+        json_data = json.load(json_data)
+    for obj in json_data:
+        obj['dependedOnBy'] = []
+        data[obj['name']] = obj
+        for name in obj['depends']:
+            if name in data:
+                data[name]['dependedOnBy'].append(obj['name'])
+            else:
+                errors = errors.append(
+                    "Unrecognized dependency: %s depends on %s" % (obj[name], name)
+                )
+    return data
 
-	data = {}
-	errors = {}
 
-	for obj in json:
-		obj['dependedOnBy'] = []
-		data[obj['name']] = obj
-
-
+def test_util():
+    return "This is test util function"
