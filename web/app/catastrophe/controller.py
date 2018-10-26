@@ -18,7 +18,6 @@ DATA_PATH = os.path.join(APP_ROOT, 'data')
 
 @main_blueprint.route('/', methods=['GET'])
 def index():
-
 	config_path = os.path.join(DATA_PATH, 'config.json')
 	object_path = os.path.join(DATA_PATH, 'objects.json')
 	config = read_config(config_path, object_path)
