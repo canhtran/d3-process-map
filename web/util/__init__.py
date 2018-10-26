@@ -17,7 +17,4 @@ def read_data(data_url):
                     "Unrecognized dependency: %s depends on %s" % (obj[name], name)
                 )
     return data
-
-
-def test_util():
-    return "This is test util function"
+    
