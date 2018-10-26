@@ -17,4 +17,10 @@ def read_data(data_url):
                     "Unrecognized dependency: %s depends on %s" % (obj[name], name)
                 )
     return data
-    
+
+
+def read_config(config_url, data_url):
+	with open(config_url) as data:
+		configurate = json.load(data)
+	configurate['jsonUrl'] = read_data(data_url)
+	return configurate

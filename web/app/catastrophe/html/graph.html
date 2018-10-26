@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+<div id="split-container">
+    <a class="btn btn-default nav-button" id="nav-list" href="#">
+        View list
+    </a>
+    <div id="graph-container">
+        <div id="graph"></div>
+    </div>
+    <div id="docs-container">
+        <a id="docs-close" href="#">&times;</a>
+        <div id="docs" class="docs"></div>
+    </div>
+</div>
+{% endblock %}
+
