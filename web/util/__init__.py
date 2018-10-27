@@ -20,8 +20,8 @@ def read_data(data_url):
 	return data
 
 
-def read_config(config_url, data_url):
+def read_config(config_url):
 	with open(config_url) as data:
 		configurate = json.load(data)
-	configurate['jsonUrl'] = read_data(data_url)
+	configurate['jsonUrl'] = '/jsonurl'
 	return configurate
