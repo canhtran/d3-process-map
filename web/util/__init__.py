@@ -9,15 +9,17 @@ def read_data(data_url):
 	for obj in json_data:
 		obj['dependedOnBy'] = []
 		data[obj['name']] = obj
+
+	for obj in json_data:
 		for name in obj['depends']:
 			if name in data:
-				data[name]['dependedOnBy'] = []
 				data[name]['dependedOnBy'].append(obj['name'])
 			else:
 				errors.append(
 					"Unrecognized dependency: %s depends on %s" % (obj['name'], name)
 				)
-	return data
+			print(name)
+	return data, errors
 
 
 def read_config(config_url):
