@@ -6,13 +6,14 @@ var graph       = {},
 $(function() {
     resize();
 
-    isIE = $.browser.msie;
+    // isIE = $.browser.msie;
 
     if ($.browser.mozilla) {
         $('body').addClass('firefox');
     }
 
     d3.json(config.jsonUrl, function(data) {
+        print(data.errors)
         if (data.errors.length) {
             alert('Data error(s):\n\n' + data.errors.join('\n'));
             return;
