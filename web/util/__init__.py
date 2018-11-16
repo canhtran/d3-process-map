@@ -18,7 +18,6 @@ def read_data(data_url):
 				errors.append(
 					"Unrecognized dependency: %s depends on %s" % (obj['name'], name)
 				)
-			print(name)
 	return data, errors
 
 
