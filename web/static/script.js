@@ -189,49 +189,49 @@ function drawGraph() {
       .enter().append('feMergeNode')
         .attr('in', String);
 
-    graph.legend = graph.svg.append('g')
-        .attr('class', 'legend')
-        .attr('x', 0)
-        .attr('y', 0)
-      .selectAll('.category')
-        .data(d3.values(graph.categories))
-      .enter().append('g')
-        .attr('class', 'category');
+    // graph.legend = graph.svg.append('g')
+    //     .attr('class', 'legend')
+    //     .attr('x', 0)
+    //     .attr('y', 0)
+    //   .selectAll('.category')
+    //     .data(d3.values(graph.categories))
+    //   .enter().append('g')
+    //     .attr('class', 'category');
 
-    graph.legendConfig = {
-        rectWidth   : 12,
-        rectHeight  : 12,
-        xOffset     : -10,
-        yOffset     : 30,
-        xOffsetText : 20,
-        yOffsetText : 10,
-        lineHeight  : 15
-    };
-    graph.legendConfig.xOffsetText += graph.legendConfig.xOffset;
-    graph.legendConfig.yOffsetText += graph.legendConfig.yOffset;
+    // graph.legendConfig = {
+    //     rectWidth   : 12,
+    //     rectHeight  : 12,
+    //     xOffset     : -10,
+    //     yOffset     : 30,
+    //     xOffsetText : 20,
+    //     yOffsetText : 10,
+    //     lineHeight  : 15
+    // };
+    // graph.legendConfig.xOffsetText += graph.legendConfig.xOffset;
+    // graph.legendConfig.yOffsetText += graph.legendConfig.yOffset;
 
-    graph.legend.append('rect')
-        .attr('x', graph.legendConfig.xOffset)
-        .attr('y', function(d, i) {
-            return graph.legendConfig.yOffset + i * graph.legendConfig.lineHeight;
-        })
-        .attr('height', graph.legendConfig.rectHeight)
-        .attr('width' , graph.legendConfig.rectWidth)
-        .attr('fill'  , function(d) {
-            return graph.fillColor(d.key);
-        })
-        .attr('stroke', function(d) {
-            return graph.strokeColor(d.key);
-        });
+    // graph.legend.append('rect')
+    //     .attr('x', graph.legendConfig.xOffset)
+    //     .attr('y', function(d, i) {
+    //         return graph.legendConfig.yOffset + i * graph.legendConfig.lineHeight;
+    //     })
+    //     .attr('height', graph.legendConfig.rectHeight)
+    //     .attr('width' , graph.legendConfig.rectWidth)
+    //     .attr('fill'  , function(d) {
+    //         return graph.fillColor(d.key);
+    //     })
+    //     .attr('stroke', function(d) {
+    //         return graph.strokeColor(d.key);
+    //     });
 
-    graph.legend.append('text')
-        .attr('x', graph.legendConfig.xOffsetText)
-        .attr('y', function(d, i) {
-            return graph.legendConfig.yOffsetText + i * graph.legendConfig.lineHeight;
-        })
-        .text(function(d) {
-            return d.typeName + (d.group ? ': ' + d.group : '');
-        });
+    // graph.legend.append('text')
+    //     .attr('x', graph.legendConfig.xOffsetText)
+    //     .attr('y', function(d, i) {
+    //         return graph.legendConfig.yOffsetText + i * graph.legendConfig.lineHeight;
+    //     })
+    //     .text(function(d) {
+    //         return d.typeName + (d.group ? ': ' + d.group : '');
+    //     });
 
     $('#graph-container').on('scroll', function() {
         graph.legend.attr('transform', 'translate(0,' + $(this).scrollTop() + ')');
