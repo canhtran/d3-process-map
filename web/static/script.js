@@ -22,10 +22,10 @@ $(function() {
         drawGraph();
     });
 
-    $('#docs-close').on('click', function() {
-        deselectObject();
-        return false;
-    });
+    // $('#docs-close').on('click', function() {
+    //     deselectObject();
+    //     return false;
+    // });
 
     $(document).on('click', '.select-object', function() {
         var obj = graph.data[$(this).data('name')];
@@ -242,44 +242,44 @@ function drawGraph() {
       .enter().append('line')
         .attr('class', 'link');
 
-    graph.draggedThreshold = d3.scale.linear()
-        .domain([0, 0.1])
-        .range([5, 20])
-        .clamp(true);
+    // graph.draggedThreshold = d3.scale.linear()
+    //     .domain([0, 0.1])
+    //     .range([5, 20])
+    //     .clamp(true);
 
-    function dragged(d) {
-        var threshold = graph.draggedThreshold(graph.force.alpha()),
-            dx        = d.oldX - d.px,
-            dy        = d.oldY - d.py;
-        if (Math.abs(dx) >= threshold || Math.abs(dy) >= threshold) {
-            d.dragged = true;
-        }
-        return d.dragged;
-    }
+    // function dragged(d) {
+    //     var threshold = graph.draggedThreshold(graph.force.alpha()),
+    //         dx        = d.oldX - d.px,
+    //         dy        = d.oldY - d.py;
+    //     if (Math.abs(dx) >= threshold || Math.abs(dy) >= threshold) {
+    //         d.dragged = true;
+    //     }
+    //     return d.dragged;
+    // }
 
-    graph.drag = d3.behavior.drag()
-        .origin(function(d) { return d; })
-        .on('dragstart', function(d) {
-            d.oldX    = d.x;
-            d.oldY    = d.y;
-            d.dragged = false;
-            d.fixed |= 2;
-        })
-        .on('drag', function(d) {
-            d.px = d3.event.x;
-            d.py = d3.event.y;
-            if (dragged(d)) {
-                if (!graph.force.alpha()) {
-                    graph.force.alpha(.025);
-                }
-            }
-        })
-        .on('dragend', function(d) {
-            if (!dragged(d)) {
-                selectObject(d, this);
-            }
-            d.fixed &= ~6;
-        });
+    // graph.drag = d3.behavior.drag()
+    //     .origin(function(d) { return d; })
+    //     .on('dragstart', function(d) {
+    //         d.oldX    = d.x;
+    //         d.oldY    = d.y;
+    //         d.dragged = false;
+    //         d.fixed |= 2;
+    //     })
+    //     .on('drag', function(d) {
+    //         d.px = d3.event.x;
+    //         d.py = d3.event.y;
+    //         if (dragged(d)) {
+    //             if (!graph.force.alpha()) {
+    //                 graph.force.alpha(.025);
+    //             }
+    //         }
+    //     })
+    //     .on('dragend', function(d) {
+    //         if (!dragged(d)) {
+    //             selectObject(d, this);
+    //         }
+    //         d.fixed &= ~6;
+    //     });
 
     $('#graph-container').on('click', function(e) {
         if (!$(e.target).closest('.node').length) {
@@ -289,9 +289,9 @@ function drawGraph() {
 
     graph.node = graph.svg.selectAll('.node')
         .data(graph.force.nodes())
-      .enter().append('g')
+        .enter().append('g')
         .attr('class', 'node')
-        .call(graph.drag)
+        // .call(graph.drag)
         .on('mouseover', function(d) {
             if (!selected.obj) {
                 if (graph.mouseoutTimeout) {
